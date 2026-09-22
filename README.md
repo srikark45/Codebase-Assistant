@@ -1,8 +1,7 @@
 # Codebase Search & Refactor Assistant
 
 A small tool that indexes a source repository with a custom **inverted
-index** and **trie**, ranks search results with **BM25**, and (as a next
-step) can call an LLM API to summarize files or suggest refactors.
+index** and **trie**, ranks search results with **BM25**, and can call an LLM API to summarize files or suggest refactors.
 
 ## Quickstart
 
@@ -81,14 +80,6 @@ environment variable.
 
 ## Next steps (stretch goals)
 
-1. **Persist the trie** the same way `InvertedIndex.save/load` works, so
-   `cli.py autocomplete` doesn't need a fresh indexing run.
-2. **Semantic search**: swap or augment BM25 with embedding similarity
-   (e.g. `sentence-transformers`) for search that understands meaning,
-   not just keyword overlap.
-3. **Web UI**: a minimal Flask/FastAPI layer over `search/query.py` and
+1. **Web UI**: a minimal Flask/FastAPI layer over `search/query.py` and
    `ai/refactor_assistant.py`, built with accessible, keyboard-navigable,
    semantic HTML.
-4. **Wire AI results into search**: use `ai/prompts.py`'s
-   `explain_search_result_prompt` to have `cli.py search` optionally
-   explain *why* the top result matched, not just show the score.
